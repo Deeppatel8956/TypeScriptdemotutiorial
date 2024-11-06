@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="crud.css">
+</head>
+<body onload="readAll()">
+    <div class="form_container">
+        <form action="" class="create_form">
+            <input type="text" placeholder="enter name" class="name">
+            <input type="email" placeholder="enter email" class="email">
+            <button type="button" onclick="add()">Create</button>
+        </form>
+        <form action="" class="update_form">
+            <input type="text" hidden class="id">
+            <input type="text" placeholder="enter name" class="uname">
+            <input type="email" placeholder="enter email" class="uemail">
+            <button type="button" onclick="update()">Update</button>
+        </form>
+        <div class="add_div">
+            <button onclick="create()">Add +</button>
+        </div>
+           <table>
+            <thead>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th colspan="2">Action</th>
+            </thead>
+            <tbody class="data_table"></tbody>
+           </table>
+    </div>
+    <script src="demo.js"></script>
+    
+</body>
+</html>

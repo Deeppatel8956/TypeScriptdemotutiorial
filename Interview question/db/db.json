@@ -1,0 +1,28 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "city": "Ahamadabad",
+      "name": "dof",
+      "email": "dof23@gmail.com"
+    },
+    {
+      "id": 2,
+      "city": "Gandhinagar",
+      "name": "god",
+      "email": "god23@gmail.com"
+    },
+    {
+      "id": 3,
+      "city": "Aanad",
+      "name": "doer",
+      "email": "doer23@gmail.com"
+    },
+    {
+      "city": "Godhara",
+      "name": "dark",
+      "email": "dark@gmail.com",
+      "id": 4
+    }
+  ]
+}
