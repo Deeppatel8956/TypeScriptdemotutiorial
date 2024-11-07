@@ -1,0 +1,162 @@
+                             App.js
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Todo from './Todo';
+import AddTodo from './AddTodo';
+import EditTodo from './EditTodo';
+import './App.css';
+
+function App() {
+  const [todos, setTodos] = useState(() => {
+    const savedTodos = localStorage.getItem('todos');
+    return savedTodos ? JSON.parse(savedTodos) : [];
+  });
+
+  const addTodo = (newTodo) => {
+    setTodos([...todos, newTodo]);
+  };
+
+  const updateTodo = (id, newText) => {
+    setTodos(todos.map((todo) => (todo.id === id ? { ...todo, text: newText } : todo)));
+  };
+
+  return (
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path="/">
+            <Todo todos={todos} />
+          </Route>
+          <Route path="/add">
+            <AddTodo addTodo={addTodo} />
+          </Route>
+          <Route path="/edit/:id">
+            <EditTodo todos={todos} updateTodo={updateTodo} />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
+}
+
+export default App;
+
+
+
+
+                                       TODO.js
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
+const Todo = () => {
+  const [todos, setTodos] = useState(() => {
+    const savedTodos = localStorage.getItem('todos');
+    return savedTodos ? JSON.parse(savedTodos) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
+
+  const handleDelete = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  return (
+    <div>
+      <h1>Todo List</h1>
+      <Link to="/add">Add New Todo</Link>
+      <ul>
+        {todos.map((todo) => (
+          <li key={todo.id}>
+            <Link to={`/edit/${todo.id}`}>{todo.text}</Link>
+            <button onClick={() => handleDelete(todo.id)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default Todo;
+
+
+                                         Add.js
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+
+const AddTodo = ({ addTodo }) => {
+  const [todo, setTodo] = useState('');
+  const history = useHistory();
+
+  const handleInputChange = (e) => {
+    setTodo(e.target.value);
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (todo.trim()) {
+      addTodo({
+        id: Date.now(),
+        text: todo.trim(),
+      });
+      history.push('/');
+    }
+  };
+
+  return (
+    <div>
+      <h1>Add Todo</h1>
+      <form onSubmit={handleFormSubmit}>
+        <input type="text" value={todo} onChange={handleInputChange} placeholder="Add a new todo" />
+        <button type="submit">Add</button>
+      </form>
+    </div>
+  );
+};
+
+export default AddTodo;
+
+
+
+                                      Edit.js
+import React, { useState, useEffect } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
+
+const EditTodo = ({ todos, updateTodo }) => {
+  const { id } = useParams();
+  const history = useHistory();
+  const [todo, setTodo] = useState('');
+
+  useEffect(() => {
+    const currentTodo = todos.find((todo) => todo.id === parseInt(id));
+    if (currentTodo) {
+      setTodo(currentTodo.text);
+    }
+  }, [id, todos]);
+
+  const handleInputChange = (e) => {
+    setTodo(e.target.value);
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (todo.trim()) {
+      updateTodo(parseInt(id), todo.trim());
+      history.push('/');
+    }
+  };
+
+  return (
+    <div>
+      <h1>Edit Todo</h1>
+      <form onSubmit={handleFormSubmit}>
+        <input type="text" value={todo} onChange={handleInputChange} />
+        <button type="submit">Update</button>
+      </form>
+    </div>
+  );
+};
+
+export default EditTodo;
+
