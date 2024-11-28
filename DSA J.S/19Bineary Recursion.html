@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let data=[10,20,30]
+        let start=0
+        let end=data.length-1
+        let find=10
+        let po=undefined
+        function bineary_Recursion(data,start,end) {
+            let mid=Math.floor((start+end)/2)
+            if (data[mid]==find) {
+                po=mid
+                return true
+            }else if (data[mid] < find) {
+                bineary_Recursion(data,mid+1,end)
+            }
+             else {
+                bineary_Recursion(data,start,mid-1)
+            }
+        }
+        console.warn(po);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

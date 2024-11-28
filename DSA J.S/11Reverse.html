@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse</title>
+
+    <script>
+        let data=[5,10,20,30,8,2,1]
+        let temp;
+
+        function custom_Reverse(data,start,end) {
+            if (start<=end) {
+                temp=data[start]
+                data[start]=data[end]
+                data[end]=temp
+                custom_Reverse(data,start+1,end-1)
+            }
+        }
+        custom_Reverse(data,0,data.length-1)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

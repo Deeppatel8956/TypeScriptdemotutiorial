@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let data=[20,12,53,3]
+        function selction_Sort(items) {
+            let midId
+            for(let i=0;i<data.length;i++){
+                midId=i
+                for(let j=i+1;j<data.length;j++){
+                    // 12<20
+                    // 20<53
+                    // 53<3
+                    // 3
+                   if (data[j]<data[midId]) {
+                    midId=j
+                   }
+                }
+                let temp=data[midId]
+                data[midId]=data[i]
+                data[i]=temp
+            }
+        }
+        selction_Sort(data)
+
+        // descanding
+        function selction_Sort(items) {
+            let midId
+            for(let i=0;i<data.length;i++){
+                midId=i
+                for(let j=i+1;j<data.length;j++){
+                    // 12<20
+                    // 20<53
+                    // 53<3
+                    // 3
+                   if (data[j]>data[midId]) {
+                    midId=j
+                   }
+                }
+                let temp=data[midId]
+                data[midId]=data[i]
+                data[i]=temp
+            }
+        }
+
+        // method2
+        // function selction_Sort(items) {
+        //     let midId
+        //     for(let i=data.length-1;i>=0;i--){
+        //         midId=i
+        //         for(let j=i-1;j>=0;j--){
+        //             // 12<20
+        //             // 20<53
+        //             // 53<3
+        //             // 3
+        //            if (midId[j]<data[midId]) {
+        //             midId=j
+        //            }
+        //         }
+        //         let temp=data[midId]
+        //         data[midId]=data[i]
+        //         data[i]=temp
+        //     }
+        // }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

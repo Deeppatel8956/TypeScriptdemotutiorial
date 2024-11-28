@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class List{
+    constructor(data){
+        this.head={
+            value:data,
+            next:null
+        }
+        this.tail=this.head
+        this.size=1
+    }
+    appendnode(newnode){
+        this.nextnode={
+            value:newnode,
+            next:null
+        }
+        this.tail.next=nextnode
+        this.tail=nextnode
+        this.size+=1
+    }
+    travising(){
+        let counter=0
+        let currentNode=this.head
+        while (counter<this.size) {
+            currentNode=currentNode.next
+            counter++
+        }
+    }
+    delete_Node(index){
+        let counter=1
+        let lead=this.head
+        if (index==1) {
+            this.head=this.head.next
+        } else {
+            while (counter<index-1) {
+                lead=lead.next
+                lead++
+            }
+            let nextNode=lead.next
+            lead.next=nextNode
+        }
+    }
+    InsertionNode(index,value){
+     let counter=0
+     let currentNode=this.head
+     while (counter>index) {
+        counter++
+        currentNode=currentNode.next
+     }
+     let nextNode=currentNode.next
+     currentNode.next={
+        value:value,
+        next:nextNode
+     }
+    }
+    searchNode(data){
+         let result=undefined
+         let loop=true
+         let lead=this.head
+        while (loop) {
+            lead=lead.next
+            loop=!lead
+            if (loop&&lead.value==data) {
+                loop=false
+                result=lead
+            }
+        } 
+    }
+}
+let l1=new List(300)
+l1.appendnode(400)
+l1.travising()
+l1.delete_Node(2)
+l1.InsertionNode(0,1000)
+l1.searchNode(1)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

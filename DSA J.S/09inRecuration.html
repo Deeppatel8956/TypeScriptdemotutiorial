@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inRecuration </title>
+    <script>
+        let money=100
+        let x=0
+        function buyapple(x) {
+            if (x>0) {
+                x++
+                console.warn(x,x);
+                buymore(x-5)
+            } else {
+                
+            }
+            buymore(x)
+        }
+        
+        function buymore(x) {
+            x++
+            buyapple(x-10)
+            console.log("buy more")
+        }
+        buyapple(money)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

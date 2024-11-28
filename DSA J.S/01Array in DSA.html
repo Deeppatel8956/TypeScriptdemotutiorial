@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array dsa</title>
+    <script>
+        let data=[0,2,3,14,5,6,7,8,9,10,70,6]
+        // for(let i=0;i<data.length;i++){
+        //     document.write(data[i])
+        // }
+        
+        // let x=3
+        // document.write(data[x])
+
+      
+        function get_Value() {
+            let el=document.getElementById('elemen').value
+           if (el<data.length && Number.parseInt(el)&&el>=0) {
+            alert(data[el])
+           } else{
+            alert("not found")
+           }
+        }
+    </script>
+</head>
+<body>
+ <input type="text" id="elemen">
+ <button id="got" onclick="get_Value()">search</button>
+</body>
+</html>

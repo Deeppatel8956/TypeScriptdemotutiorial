@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shortcut </title>
+    <script>
+        // let data=[10,50,20,30,40,60,70]
+        // let item=70
+        // let index=undefined
+
+        // for(let i=0;i<data.length-1;i++){
+        //     if (data[i]==item) {
+        //         index=i
+        //         break
+        //     }
+        // }
+        // console.warn(index)
+
+        function search_Item() {
+            let data=[10,50,20,30,40,60,70]
+        let item=document.getElementById('item').value
+        let index=undefined
+
+        for(let i=0;i<data.length-1;i++){
+            if (data[i]==item) {
+                index=i
+                break
+            }
+        }
+        console.warn(index)
+        }
+
+
+        // Interview Question that sir asked to solve if we have 2 or more then 2 index of that value :
+        let datas = [1,22,55,33,16,55];
+let fish = 55;
+let fish2 = 22;
+let index = [];
+function getsearch_Twovalue() {
+    for(let i=0;i<datas.length-1;i++){
+       if (datas[i]==fish&&datas[i]==fish2) {
+        index.push(i)
+       }
+    }
+    if(index.length > 0){
+    console.log(`data is at index [ ${index} ] of array: ${data}`);
+}else{
+    console.log(`cant find any data`);
+}
+
+}
+    </script>
+</head>
+<body>
+    <input type="text" id="item">
+    <button onclick="search_Item()">Serch</button>
+</body>
+</html>

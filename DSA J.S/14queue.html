@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue</title>
+    <script>
+        let queu=[]
+        let currentsize=queu.length
+        let maxsize=5
+        function enquque(newEl) {
+            if (currentsize>=maxsize) {
+                alert("full item")
+            } else {
+                queu[currentsize]=newEl
+                currentsize++
+            }
+        }
+
+        function dsiplay() {
+            console.warn(queu);
+        }
+        
+        function dequeue() {
+            if (currentsize>0) {
+                for(let i=0;i<queu.length;i++){
+                    queu[i]=queu[i+1]
+                }
+                currentsize--
+                queu.length=currentsize
+            } else {
+                alert("is empty")
+            }
+        }
+        enquque(20)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

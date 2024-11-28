@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let data=[]
+        let currentsize=data.length
+        let maxsize=5
+        function Push(newEl) {
+            if (currentsize>=maxsize) {
+                alert('is full')
+            }else{
+                data[currentsize]=newEl
+                currentsize+=1
+            }
+        }
+
+        function Pop() {
+            if (currentsize>0) {
+                currentsize-=1
+                data.length=currentsize
+            }else{
+                alert('is full')
+            }
+        }
+        Push(10)
+        Push(20)
+        Pop()
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

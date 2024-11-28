@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // let data=[1,2,3,4,66,8,9,10]
+        // let find=2
+        // let po=undefined
+        // for(let i=0;i<=data.length;i++){
+        //     if(data[i]==find){
+        //         po=i
+        //         break
+        //     }
+        // }
+        // console.warn(po);
+        // if (!po) {
+        //     alert("it is empty")
+        // } else {
+        //     alert("number"+po+"full")
+        // }
+        
+        function search() {
+            let data=[1,2,3,4,66,8,9,10]
+        let find=document.getElementById('el').value
+        let po=undefined
+        for(let i=0;i<=data.length;i++){
+            if(data[i]==find){
+                po=i
+                break
+            }
+        }
+        console.warn(po);
+        if (!po) {
+            alert("it is empty")
+        } else {
+            alert("number"+po+"full")
+        }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="el">
+    <button onclick="search()">click</button>
+</body>
+</html>

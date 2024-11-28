@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let data=[2,0,23,56,58,32,5,594,587,988]
+        let postion=2
+        let newEl=40
+        // function value_Insert(arr) {
+        //     for(let i=data.length-1;i>=0;i--){
+        //         if (i>=postion) {
+        //             data[i+1]=data[i]
+        //             if(i==postion){
+        //                 data[i]=newEl
+        //             }
+        //         }
+        //     }
+        // }
+        // console.log(value_Insert(data))
+
+        function insert() {
+            let data=[2,0,23,56,58,32,5,594,587,988]
+        let postion=document.getElementById('postion').value
+        let newEl=document.getElementById('newEl').value
+        for(let i=data.length-1;i>=0;i--){
+            if (i>=postion) {
+                data[i+1]=data[i]
+                if (i==postion) {
+                    data[i]=newEl
+                }
+            }
+        }
+        console.warn(data)
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="postion">
+    <input type="text" id="newEl">
+    <button onclick="insert()">Click</button>
+</body>
+</html>

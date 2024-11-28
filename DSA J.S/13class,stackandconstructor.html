@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class ,stack and constructor</title>
+    <script>
+        class Stack{
+            item=[]
+            currentsize;
+            maxsize=5
+            constructor(size) {
+                   this.maxsize=size;
+                   this.currentsize=this.item.length
+            }
+            Push(newEl){
+                if (this.currentsize>=this.maxsize) {
+                alert("please write currect")
+            } else {
+                this.item[this.currentsize]=newEl
+                currentsize++
+            }}
+            Pop(){
+                if (this.currentsize>0) {
+                    this.currentsize--;
+                    this.item.length=this.currentsize
+                } else {
+                    alert("all most empty")
+                }
+            }
+            display(){
+                console.warn();
+            }
+        }
+        st1=new Stack(5)
+        st1.Push(20)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

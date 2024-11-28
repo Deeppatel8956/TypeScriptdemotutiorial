@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete array</title>
+    <script>
+        // let data=[10,20,30,40,50,90,80]
+        // let postion=3
+        // for(let i=postion;i<data.length-1;i++){
+        //     // current value = upgaredvalue
+        //     // 3   =  3+1=4
+        //     data[i]=data[i+1]
+        // }
+        // data.length=data.length-1
+        // console.warn(data)
+
+        function delete_Array(){
+            let data=[10,20,30,40,50,90,80]
+        let postion=document.getElementById('postion').value
+        postion=Number.parseInt(postion)
+        for(let i=postion;i<data.length-1;i++){
+            // current value = upgaredvalue
+            // 3   =  3+1=4
+            data[i]=data[i+1]
+        }
+        data.length=data.length-1
+        console.warn(data)   
+        }
+    </script>
+</head>
+<body>
+    <input type="text"  id="postion">
+    <button onclick="delete_Array()">Delete</button>
+</body>
+</html>
